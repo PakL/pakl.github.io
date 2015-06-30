@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?zg4se');
-	src:url('fonts/icomoon.eot?#iefixzg4se') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?zg4se') format('truetype'),
-		url('fonts/icomoon.woff?zg4se') format('woff'),
-		url('fonts/icomoon.svg?zg4se#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?nlmm7m');
+	src:url('fonts/icomoon.eot?#iefixnlmm7m') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?nlmm7m') format('truetype'),
+		url('fonts/icomoon.woff?nlmm7m') format('woff'),
+		url('fonts/icomoon.svg?nlmm7m#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -40,6 +40,15 @@
 }
 .icon-wordpress:before {
 	content: "\ef12";
+}
+.icon-tux:before {
+	content: "\ef1a";
+}
+.icon-apple:before {
+	content: "\ef1b";
+}
+.icon-windows:before {
+	content: "\ef1f";
 }
 .icon-lastfm:before {
 	content: "\ef26";
