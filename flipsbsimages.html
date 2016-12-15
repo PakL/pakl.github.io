@@ -10,99 +10,10 @@
 				color: #000;
 				font-family: sans-serif;
 			}
-			#output {
-				display: none;
-			}
-			#saveable {
-				width: 100%;
-				height: auto;
-			}
 		</style>
+		<meta http-equiv="refresh" content="0; URL=/flipsbsimages/">
 	</head>
 	<body>
-		<p>You can flip SBS-Image for cross eye viewing here. Just select an image here, your browser will do the rest, there is no uploading going on. Optionally click/tap the image to flip sides.</p>
-		<label>Select image: <input type="file" id="inputimage" name="inputimage" accept="image/*"></label>
-		<p>Image will appear below. You should be able to save them, too.</p>
-		<hr>
-		<canvas id="output" width="0" height="0"></canvas>
-		<img id="saveable">
-		<hr>
-
-		<script type="application/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script type="application/javascript">
-			var canvas = document.getElementById("output");
-			var ctx = canvas.getContext("2d");
-			var img = null; var flipped = true;
-
-			$("#inputimage").on("change", function(evt){
-				evt.preventDefault();
-
-				var reader = new FileReader();
-				if(evt.target.files.length == 1) {
-					var imagefile = evt.target.files[0];
-					if(imagefile.type == "image/jpeg" || imagefile.type == "image/png") {
-						reader.onload = (function(thefile) {
-							return function(e) {
-								if(e.target.readyState == FileReader.DONE) {
-									img = new Image();
-									img.src = e.target.result;
-									img.onload = function() {
-										flipped = true;
-										$("#output").prop({"width": this.width, "height": this.height});
-										ctx.drawImage(this,
-											0, 0,
-											this.width/2, this.height,
-											this.width/2, 0,
-											this.width/2, this.height
-										);
-										ctx.drawImage(this,
-											this.width/2, 0,
-											this.width/2, this.height,
-											0, 0,
-											this.width/2, this.height
-										);
-										$("#saveable").prop("src", canvas.toDataURL("image/jpeg"));
-									};
-								}
-							};
-						})(imagefile);
-						reader.readAsDataURL(imagefile);
-					}
-				}
-			});
-			$("#saveable").click(function(){
-				if(img == null) return;
-				
-				if(flipped) {
-					ctx.drawImage(img,
-						0, 0,
-						img.width/2, img.height,
-						0, 0,
-						img.width/2, img.height
-					);
-					ctx.drawImage(img,
-						img.width/2, 0,
-						img.width/2, img.height,
-						img.width/2, 0,
-						img.width/2, img.height
-					);
-				} else {
-					ctx.drawImage(img,
-						0, 0,
-						img.width/2, img.height,
-						img.width/2, 0,
-						img.width/2, img.height
-					);
-					ctx.drawImage(img,
-						img.width/2, 0,
-						img.width/2, img.height,
-						0, 0,
-						img.width/2, img.height
-					);
-				}
-				$("#saveable").prop("src", canvas.toDataURL("image/jpeg"));
-				flipped = !flipped;
-			});
-		</script>
+		Moved here: <a href="/flipsbsimages/">/flipsbsimages/</a>
 	</body>
 </html>
