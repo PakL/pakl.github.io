@@ -68,7 +68,7 @@
 							};
 						})(imagefile);
 						reader.readAsDataURL(imagefile);
-					} else if(imagefile.type == "image/mpo") {
+					} else if(imagefile.type == "image/mpo" || imagefile.name.toLowerCase().substr(imagefile.name.length-4) == ".mpo") {
 						new MPOExtracor(imagefile, function(mpo){
 							if(mpo.numImgs >= 2) {
 								console.log(mpo.imgs[0].length /1024);
@@ -103,7 +103,7 @@
 							}
 						});
 					} else {
-						alert("Unsupported type " + imagefile.type);
+						alert("Unsupported type for file " + imagefile.name + ": " + imagefile.type);
 					}
 				}
 			});
