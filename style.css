@@ -1,215 +1,96 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic,500);
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,400i,700');
 
-body {
-	background-color: #2196f3;
+html, body {
+	background-color: #cccccc;
 	color: #555555;
-	font-family: "Roboto", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size: 14pt;
 	font-weight: 400;
-	padding: 20px;
-	margin: 0;
 }
 
-
-h1 {
-	font-size: 34pt;
-	font-weight: 300;
-	margin: 0;
-	color: #333333;
-	padding-top: 20px;
-	margin-bottom: 20px;
-}
-h2 {
-	font-size: 20pt;
-	font-weight: 700;
-	margin: 0;
-	color: #333333;
-}
-h3 {
-	font-size: 16pt;
-	font-weight: 700;
-	margin: 0;
-	color: #333333;
-}
-
-strong {
-	font-weight: 700;
-}
-i {
-	font-style: italic;
-}
-hr {
-	border: 0;
-	border-top: 1px solid #999999;
-	margin: 40px;
-}
 a {
-	color: #2196f3;
 	text-decoration: none;
-}
-a:hover {
-	color: #969696;
+	color: #1976d2;
 }
 
-#content ul {
-	list-style: none;
-	margin: 0;
-	padding-left: 10;
-}
-#content li {
-	line-height: 40px;
-}
-#content li::before {
-	content: '» ';
+td {
+	vertical-align: top;
 }
 
-aside#profile {
-	width: 100%;
-	color: #ffffff;
-	font-size: 13pt;
-	-webkit-hyphens: manual;
-	-moz-hyphens: manual;
-	-ms-hyphens: manual;
-	hyphens: manual;
+small {
+	color: #777777;
 }
 
-#profile a {
-	color: #ffffff;
-	text-decoration: none;
-}
-
-#profile a:hover {
-	color: #cccccc;
-}
-
-#profile img {
-	width: 120px;
-	height: 120px;
-	border-radius: 70px;
-	border: 10px solid #ffffff;
-	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
-	display: block;
+header {
+	text-align: center;
+	padding-bottom: 10px;
 	margin: auto;
-}
-
-
-#profile strong {
-	display: block;
-	font-weight: 700;
-	font-size: 14pt;
-	margin-top: 20px;
 	margin-bottom: 10px;
+	border-bottom: 1px solid #999999;
+	max-width: 460px;
 }
 
-#profile ul {
-	list-style: none;
+header > h1 {
+	font-family: "Great Vibes", Serif;
+	font-weight: 400;
+	font-size: 4em;
 	margin: 0;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 0;
+	color: #1976d2;
+}
+header > h2 {
+	font-weight: 400;
+	font-size: 1em;
+	margin: -20px 0 0 0;
 }
 
-#profile ul li {
-	display: block;
-	margin-bottom: 2px;
-}
-#profile ul li a {
-	display: block;
-	background-color: #1e88e5;
-	padding: 5px;
-}
-#profile ul li a:hover {
-	background-color: #1976d2;
-}
-#profile ul li a span {
-	margin-left: 10px;
-	margin-right: 10px;
+header > a > img {
+	height: 150px;
+	width: auto;
+	border-radius: 50%;
+	border: 10px solid #ffffff;
+	box-shadow: 0 3px 3px rgba(0,0,0, 0.3)
 }
 
-#profile label {
+section {
+	padding-bottom: 10px;
+	margin: auto;
+	margin-bottom: 10px;
+	max-width: 460px;
+	border-bottom: 1px solid #999999;
+}
+
+section > h3 {
+	font-size: 1.1em;
+	font-weight: 400;
+	margin: 0;
+	margin-top: 5px;
+	font-weight: 700;
+}
+section > table {
+	border-spacing: 0;
+}
+
+.social {
+	text-align: center;
+	word-spacing: 20px;
+}
+
+section label {
 	display: block;
 	margin-top: 5px;
-	font-size: 14px;
 }
-#profile label > label {
-	margin-left: 20px;
-}
-#profile progress {
+
+section label > progress {
+	display: block;
 	width: 100%;
-	background-color: #1e88e5;
+	background-color: #59a4e5;
 	border: 0;
+	height: 20px;
 }
-#profile progress::-moz-progress-bar,#profile progress::-webkit-progress-bar {
+section label > progress::-moz-progress-bar,section label > progress::-webkit-progress-bar {
 	background-color: #1976d2;
 }
 
-div#content {
-	margin-left: 300px;
-	max-width: 800px;
-	padding: 20px;
-	background-color: #ffffff;
-	display: none;
-}
-
-div#content p {
-	margin: 0;
-	padding-bottom: 20px;
-	font-size: 18pt;
-}
-
-.bigtable {
-	font-size: 20pt;
-}
-.bigtable td {
-	padding-left: 20px;
-	padding-top: 10px;
-}
-.bigtable small {
-	font-size: 14pt;
-	color: #999999;
-}
-
-.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y,
-.ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y,
-.ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y
-{
-	background: #000000;
-}
-
-
-@media (min-width: 600px) {
-	html, body {
-		height: 100%;
-	}
-	body {
-		background-color: #cccccc;
-		padding: 0;
-	}
-	aside#profile {
-		width: 260px;
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		overflow: hidden;
-		box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
-		padding: 20px;
-		background-color: #2196f3;
-	}
-	div#content {
-		display: block;
-		padding-top: 0;
-		padding-bottom: 0;
-		min-height: 100%;
-	}
-}
-
-@media (min-width: 1300px) {
-	aside#profile {
-		left: 10%;
-	}
-	div#content {
-		padding-left: 10%;
-		margin-left: 320px;
-	}
+section label > label {
+	margin-left: 20px;
 }
