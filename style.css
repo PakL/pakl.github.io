@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,400i,700');
 
 html, body {
-	background-color: #cccccc;
+	background-color: #ebebeb;
 	color: #555555;
 	font-family: "Open Sans", sans-serif;
 	font-size: 14pt;
@@ -10,7 +10,7 @@ html, body {
 
 a {
 	text-decoration: none;
-	color: #1976d2;
+	color: #6f19d2;
 }
 
 td {
@@ -35,12 +35,15 @@ header > h1 {
 	font-weight: 400;
 	font-size: 4em;
 	margin: 0;
-	color: #1976d2;
+	color: #6f19d2;
 }
 header > h2 {
 	font-weight: 400;
 	font-size: 1em;
 	margin: -20px 0 0 0;
+}
+h3 {
+	color: #1976d2;
 }
 
 header > a > img {
@@ -80,17 +83,23 @@ section label {
 	margin-top: 5px;
 }
 
-section label > progress {
+progress {
 	display: block;
 	width: 100%;
-	background-color: #59a4e5;
+	background-color: #ad96c9;
 	border: 0;
 	height: 20px;
 }
-section label > progress::-moz-progress-bar,section label > progress::-webkit-progress-bar {
-	background-color: #1976d2;
+::-moz-progress-bar {
+	background-color: #6f19d2;
+}
+::-webkit-progress-bar {
+	background-color: #6f19d2;
 }
 
 section label > label {
 	margin-left: 20px;
+}
+ul {
+	padding-left: 20px;
 }
