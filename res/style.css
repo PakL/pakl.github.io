@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:700|Great+Vibes|Open+Sans:400');
+
+hmtl, body {
+	background-color: #1a161b;
+	color: #e4c2f3;
+	font-family: "Open Sans", sans-serif;
+	font-size: 14pt;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #c2edf3;
+	text-decoration: none;
+}
+
+small {
+	font-size: 0.8em;
+	color: #ffffff;
+}
+
+p {
+	margin-top: 0;
+}
+
+ul {
+	padding-left: 20px;
+}
+
+header {
+	background-color: #493052;
+	padding: 10px;
+	line-height: 45px;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+#logo {
+	float: right;
+	display: block;
+	max-height: 45px;
+	margin-right: 16px;
+}
+
+table td {
+	vertical-align: top;
+}
+
+header > a {
+	display: inline-block;
+	color: #e4c2f3;
+	text-decoration: none;
+	font-size: 32px;
+}
+
+#content {
+	display: block;
+	background-color: #332a36;
+	padding-bottom: 40px;
+}
+
+.column {
+	display: inline-block;
+	width: 30%;
+	padding: 0 1%;
+	/*border-right: 1px solid #1a161b;*/
+	vertical-align: top;
+	margin-top: 40px;
+}
+
+.column:nth-child(3n) {
+	border-right: 0;
+}
+
+footer {
+	padding-bottom: 40px;
+}
+
+footer h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 2.0em;
+	font-family: 'Great Vibes', serif;
+	text-align: center;
+}
+footer h2 {
+	font-size: 1.2em;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+figure {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	text-align: center;
+}
+figure > img {
+	width: 70%;
+	max-width: 150px;
+	border-radius: 50%;
+	border: 5px solid #ffffff;
+	box-shadow: 0 5px 5px rgba(0,0,0, 0.5);
+}
+figure > figcaption {
+	display: none;
+}
+
+label {
+	display: block;
+	margin-top: 5px;
+}
+label > label {
+	margin-left: 20px;
+}
+
+.progress {
+	width: 100%;
+	height: 20px;
+	background-color: #ad96c9;
+}
+.progress > div {
+	height: 20px;
+	background-color: #6f19d2;
+	text-align: center;
+}
+
+@media (max-width: 1000px) {
+	.column {
+		width: 47%;
+	}
+}
+@media (max-width: 700px) {
+	.column {
+		width: auto;
+		border-right: 0;
+	}
+	.hide-sm {
+		display: none;
+	}
+}
