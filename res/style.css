@@ -11,9 +11,13 @@ hmtl, body {
 }
 
 a {
-	color: #c2edf3;
+	color: #559E7F;
 	text-decoration: none;
 }
+a:hover {
+	color: #a5d1bf;
+}
+
 
 small {
 	font-size: 0.8em;
@@ -27,9 +31,12 @@ p {
 ul {
 	padding-left: 20px;
 }
+h3 {
+	color: #809E3D;
+}
 
 header {
-	background-color: #493052;
+	background-color: #54375F;
 	padding: 10px;
 	line-height: 45px;
 	font-family: 'Nunito', sans-serif;
