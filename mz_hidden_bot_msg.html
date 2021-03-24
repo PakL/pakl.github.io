@@ -1,0 +1,50 @@
+---
+title: Generate hidden messages for Melzii's TTS bot
+layout: default
+---
+<div class="container">
+	<h1>Generate hidden messages for Melzii's TTS bot</h1>
+	<div class="form-group">
+		<label for="tts_input">Input:</label>
+		<input type="text" class="form-control" id="tts_input">
+	</div>
+	<div class="form-group">
+		<label for="tts_output">Output:</label>
+		<textarea class="form-control" id="tts_output" rows="5" maxlength="134" readonly></textarea>
+	</div>
+	<script>
+		var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+		function getRandomLetter() {
+			return alphabet.substr(Math.floor(Math.random()*alphabet.length), 1);
+		}
+
+		window.addEventListener('load', () => {
+			var tts_input = $('#tts_input');
+			var tts_output = $('#tts_output');
+
+			tts_input.keyup(() => {
+				var inp = tts_input.val();
+				inp = inp.trim().substr(0, 134);
+				var out = '';
+				var lastletter = '';
+				for(var i = 0; i < inp.length; i++) {
+					var letter = inp.substr(i, 1);
+					var uppercase = (letter.match(/[A-Z]/) ? true : false);
+					letter = letter.toLowerCase();
+					var rand = getRandomLetter();
+					while(rand === lastletter || rand === letter) {
+						rand = getRandomLetter();
+					}
+					out += (uppercase ? rand.toUpperCase()+rand : rand+rand) + letter;
+					lastletter = letter;
+				}
+
+				tts_output.val(out);
+			});
+
+			tts_output.focus(() => {
+				tts_output.select();
+			});
+		});
+	</script>
+</div>
