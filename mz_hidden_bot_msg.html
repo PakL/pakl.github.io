@@ -13,35 +13,78 @@ permalink: /mz_hidden_bot_msg.html
 		<label for="tts_output">Output:</label>
 		<textarea class="form-control" id="tts_output" rows="5" maxlength="134" readonly></textarea>
 	</div>
+	<div class="form-group form-check">
+		<input type="checkbox" class="form-check-input" id="tts_case_random">
+		<label class="form-check-label" for="tts_case_random">Randomize case</label>
+	</div>
+	<div class="form-group form-check">
+		<input type="checkbox" class="form-check-input" id="tts_only_needed">
+		<label class="form-check-label" for="tts_only_needed">Only add letters where needed</label>
+	</div>
+	<div class="form-group form-check">
+		<input type="checkbox" class="form-check-input" id="tts_advanced">
+		<label class="form-check-label" for="tts_advanced">Fuck my shit up</label>
+	</div>
 	<script>
 		var alphabet = 'abcdefghijklmnopqrstuvwxyz';
-		function getRandomLetter() {
-			return alphabet.substr(Math.floor(Math.random()*alphabet.length), 1);
+		var advancedAlphabet = 'abcdefghijklmnopqrstuvwxyzäöüáàéèíì#*,`´\'-={}()[]_$§!?ß0123456789';
+		function getRandomLetter(advanced) {
+			if(typeof(advanced) !== 'boolean') advanced = false;
+			return (advanced ? advancedAlphabet : alphabet).substr(Math.floor(Math.random()*(advanced ? advancedAlphabet : alphabet).length), 1);
 		}
 
 		window.addEventListener('load', () => {
 			var tts_input = $('#tts_input');
 			var tts_output = $('#tts_output');
+			var tts_case_random = $('#tts_case_random');
+			var tts_only_needed = $('#tts_only_needed');
+			var tts_advanced = $('#tts_advanced');
 
-			tts_input.keyup(() => {
+			function processTTS() {
 				var inp = tts_input.val();
 				inp = inp.trim().substr(0, 134);
 				var out = '';
 				var lastletter = '';
+
+				var onlyNeeded = tts_only_needed.is(':checked');
+				var advanced = tts_advanced.is(':checked');
+
 				for(var i = 0; i < inp.length; i++) {
 					var letter = inp.substr(i, 1);
-					var uppercase = (letter.match(/[A-Z]/) ? true : false);
-					letter = letter.toLowerCase();
-					var rand = getRandomLetter();
-					while(rand === lastletter || rand === letter) {
-						rand = getRandomLetter();
+					if((!onlyNeeded && (letter.match(/[a-z0-9]/i) || lastletter.match(/[a-z0-9]/i))) || (onlyNeeded && letter == lastletter)) {
+						var uppercase = (letter.match(/[A-Z]/) ? true : false);
+						letter = letter.toLowerCase();
+						var rand = getRandomLetter(advanced);
+						while(rand === lastletter || rand === letter) {
+							rand = getRandomLetter(advanced);
+						}
+						out += (uppercase ? rand.toUpperCase() : rand) + rand + letter;
+						lastletter = letter;
+					} else {
+						out += letter;
+						lastletter = letter;
 					}
-					out += (uppercase ? rand.toUpperCase()+rand : rand+rand) + letter;
-					lastletter = letter;
+				}
+
+				if(tts_case_random.is(':checked')) {
+					let reout = '';
+					for(var i = 0; i < out.length; i++) {
+						if(Math.random() > 0.5) {
+							reout += out.substr(i, 1).toLocaleLowerCase();
+						} else {
+							reout += out.substr(i, 1).toLocaleUpperCase();
+						}
+					}
+					out = reout;
 				}
 
 				tts_output.val(out);
-			});
+			}
+
+			tts_input.keyup(processTTS);
+			tts_case_random.change(processTTS);
+			tts_only_needed.change(processTTS);
+			tts_advanced.change(processTTS);
 
 			tts_output.focus(() => {
 				tts_output.select();
