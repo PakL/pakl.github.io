@@ -15,6 +15,36 @@
 }
 
 
+@property --theme-color-neon-a {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #cb106dff;
+}
+@property --theme-color-neon-b {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #e21279ff;
+}
+@property --theme-color-neon-c {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #e2127944;
+}
+
+@keyframes neonglow {
+	0% {
+		--theme-color-neon-a: #cb106dff;
+		--theme-color-neon-b: #e21279ff;
+		--theme-color-neon-c: #e2127944;
+	}
+	100% {
+		--theme-color-neon-a: #cb106daa;
+		--theme-color-neon-b: #e21279aa;
+		--theme-color-neon-c: #e2127911;
+	}
+}
+
+
 html, body {
 	font-family: 'Open Sans', system-ui, sans-serif;
 	font-size: 14pt;
@@ -49,7 +79,9 @@ html, body {
 	background: linear-gradient(178deg,
 		var(--theme-color-dark) 0%,
 		var(--theme-color-normal) calc(100% - 41px),
-		var(--theme-color-dark) calc(100% - 40px),
+		var(--theme-color-neon-a) calc(100% - 40px),
+		var(--theme-color-neon-b) calc(100% - 30px),
+		var(--theme-color-dark) calc(100% - 29px),
 		var(--theme-color-dark) 100%
 	);
 }
@@ -244,9 +276,14 @@ li {
 		background: linear-gradient(100deg,
 			var(--theme-color-dark) 0%,
 			var(--theme-color-normal) 400px,
-			var(--theme-color-dark) 401px,
+			var(--theme-color-neon-a) 401px,
+			var(--theme-color-neon-b) 411px,
+			var(--theme-color-neon-c) 412px,
+			var(--theme-color-dark) 492px,
 			var(--theme-color-dark) 100%
 		);
+
+		animation: 3s ease-in-out 0s infinite alternate neonglow;
 	}
 
 	#logo {
